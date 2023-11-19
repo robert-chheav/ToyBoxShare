@@ -1,8 +1,12 @@
 .cards {
   display: grid;
-  padding: 50px;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
+}
+.card-category{
+  background-size: cover;
+  padding: 200px;
+  margin:10px;
 }
 
 // Smallest device
