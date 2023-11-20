@@ -12,5 +12,10 @@
 
   <body>
     <%= yield %>
+    <nav>
+      <%= link_to "Logout", destroy_user_session_path, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+    </nav>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
   </body>
 </html>
