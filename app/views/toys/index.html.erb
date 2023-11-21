@@ -1,3 +1,24 @@
-<% @toys.each do |toy| %>
-  <%= toy.name %>
-<% end %>
+<div class="container my-5">
+
+  <div class="mb-4">
+    <%= link_to "< Back to home", root_path %>
+  </div>
+
+  <h2>All the toys</h2>
+
+  <div class='cards'>
+    <% @toys.each do |toy| %>
+    <a href="<%= toy_path(toy) %>">
+    <div class="cards-container">
+      <img src="#" alt="product.name.photo">
+      <div class="card-details">
+        <h3><%= toy.name %></h3>
+        <p><%= toy.location %></p>
+        <p><%= toy.price %><%= '€/day' %></p>
+        <button>Reserve</button>
+      </div>
+    </div>
+      <%#= render 'layouts/card' %>
+    <% end %>
+  </div>
+</div>
