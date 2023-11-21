@@ -3,11 +3,40 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 200px;
-  padding: 150px 150px;
+  padding: 100px 100px;
   color: white;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
 .footer .fa-heart {
   color: red;
 }
+
+.fas {
+  text-decoration: none;
+}
+
+// Code for footer to stay sticky"
+
+* {
+  box-sizing: border-box;
+ }
+ *:before,
+ *:after {
+  box-sizing: border-box;
+ }
+
+ html,
+ body {
+  height: 100%;
+  position: relative;
+ }
+ .main-container {
+  min-height: 100vh; /* will cover the 100% of viewport */
+  overflow: hidden;
+  display: block;
+  position: relative;
+  padding-bottom: 300px; /* height of your footer */
+ }
