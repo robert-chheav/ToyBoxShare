@@ -1,0 +1,17 @@
+<div class="toy-container">
+  <div class="toy-image column"> 
+    <img class="product-image" src="" alt="">
+  </div>
+  <div class="toy-details column"> 
+    <h2><%= @toy.name %></h2>
+    <h3 class="toy-header-descripiton"> Descripiton </h2>
+    <p><%= @toy.description %><p>
+      <div class="toy-reservation.details border p-5">
+        <div class="toy-price.details">
+          <p><%= @toy.price %> '€/day'</p>
+          <p> PickerDate </p>
+          <button class="btn">Reserve</button>
+        </div>
+      </div>
+  </div>
+</div>
