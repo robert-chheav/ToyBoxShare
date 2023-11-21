@@ -11,8 +11,27 @@
   height: 100;
   width: auto;
 }
+.navbar-nav {
+  display: inline;
+  justify-content: space-between;
+}
+.nav-link{
+  text-decoration: none;
+  display: inline;
+  margin-left: 20px;
+}
 
-.nav-item {
-  display: inline-block;
-  color: white;
+.text-gray{
+  color:rgb(185, 185, 185);
+}
+
+.text-gray:hover {
+  color:white
+}
+
+.text-white {
+  color:white;
+}
+.text-white:hover {
+  text-decoration: underline; 
 }
