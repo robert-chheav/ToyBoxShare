@@ -1,7 +1,47 @@
+.cards-container {
+  display: flex;
+  flex-direction: column;
+  margin: 30px 20px;
+  padding: 20px 30px;
+  box-shadow: rgba(0, 0, 0, 0.08) 2px 4px 6px 1px;
+  border-radius: 2px;
+  transition: transform .2s;
+  &:hover {
+    transform: scale(1.05)
+  }
+
+  h3 {
+    font-size: 20px;
+  }
+
+  p {
+    font-size: 14px;
+    padding-bottom: 5px;
+    margin: 0;
+  }
+
+  button {
+    background-color: $red;
+    border-radius: 5px;
+    color: $white;
+    border: none;
+    padding: 5px 8px;
+  }
+}
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
+  
+  a {
+    text-decoration: none;
+  }
+
+  img {
+    height: 200px;
+    background-color: rgb(180, 180, 255);
+    margin-bottom: 10px;
+  }
 }
 .card-category{
   background-size: cover;
