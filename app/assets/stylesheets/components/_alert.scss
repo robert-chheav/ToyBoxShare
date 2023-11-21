@@ -1,6 +1,29 @@
-.alert {
+// .alert {
+//   position: fixed;
+//   bottom: 16px;
+//   right: 16px;
+//   z-index: 1000;
+// }
+
+.flash {
   position: fixed;
   bottom: 16px;
   right: 16px;
   z-index: 1000;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  border-radius: 4px;
+  margin: 8px;
+}
+
+.flash-success {
+  border: 2px solid #ACDD9C;
+}
+
+.flash-danger {
+  border: 2px solid #C52330;
 }
