@@ -1,0 +1,7 @@
+   <div>
+    <%= simple_form_for [@toy, @reservation] do |f| %>
+        <%= f.input :booking_date_start, as: :string, input_html: { data: { controller: "datepicker" } } %>
+        <%= f.input :booking_date_end, as: :string, input_html: { data: { controller: "datepicker" } } %>
+        <%= f.submit class: 'btn btn-primary'%>
+    <% end %>
+  </div>

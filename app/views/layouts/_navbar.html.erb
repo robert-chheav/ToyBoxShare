@@ -3,7 +3,7 @@
       <div class="navbar-nav">
         <%= link_to image_tag("ToyBoxShare-white.png"), root_path, id:"logo"%>
         <%= link_to "All Toys", toys_path, class:"nav-link text-gray" %>
-        <%= link_to "My Reservation", new_toy_path, class:"nav-link text-gray" %>
+        <%= link_to "My Reservation", user_reservations_path(:user_id), class:"nav-link text-gray" %>
         <%= link_to "My Toys on Market", new_toy_path, class:"nav-link text-gray" %>
         <%= link_to "Post Toys", new_toy_path, class:"nav-link text-gray" %>
       </div>
