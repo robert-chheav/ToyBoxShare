@@ -21,6 +21,19 @@ class ToysController < ApplicationController
     end
   end
 
+  def edit
+    @toy = Toy.find(params[:id])
+  end
+
+  def update
+    @toy = Toy.find(params[:id])
+    if @toy.update(toy_params)
+      redirect_to toy_path(@toy)
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def toy_params

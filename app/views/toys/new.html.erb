@@ -1,15 +1,10 @@
 <div class="form">
-  <h1>Create a new toy</h1>
+  <div class="text-center">
+    <h1>Create a new toy</h1>
+  </div>
 
   <div class="form-size">
-    <%= simple_form_for(@toy) do |f| %>
-      <%= f.input :name %>
-      <%= f.input :price %>
-      <%= f.input :description %>
-      <%= f.input :location %>
-      <%= f.input :age %>
-
-      <%= f.submit class: 'btn btn-primary'%>
-    <% end %>
+    <%= render "form", thing: @toy %>
+    <%= link_to "Cancel", toys_path, class: "button btn btn-primary"%>
   </div>
 </div>
