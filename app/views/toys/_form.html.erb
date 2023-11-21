@@ -1,0 +1,10 @@
+<%= simple_form_for(thing) do |f| %>
+  <%= f.input :name, :label => "Toy name" %>
+  <%= f.input :price %>
+  <%= f.input :description %>
+  <%= f.input :photo_url, as: :file, :label => "Photo" %>
+  <%= f.input :location %>
+  <%= f.input :age %>
+
+  <%= f.submit class: 'button btn btn-primary'%>
+<% end %>
