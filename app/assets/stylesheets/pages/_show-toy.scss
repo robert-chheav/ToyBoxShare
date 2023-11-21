@@ -1,0 +1,43 @@
+.toy-container {
+  background-color: white;
+  padding:100px;
+  display:flex;
+  justify-content: center;
+}
+
+.column {
+  flex: 1; /* Distribute space equally among columns */
+  margin: 50px; /* Add some margin for spacing between columns */
+}
+
+.toy-reservation.details {
+  border: 2px solid black; /* Set the color and thickness of the border */
+  padding: 50px; /* Optional: Add padding to the content inside the div */
+}
+
+.product-image {
+  height: 600px;
+  width: 600px;
+  background-color:lightblue;
+  padding:50px;
+}
+
+.toy-header-descripiton, h2{
+  font-size:35px;
+}
+
+.toy-header-descripiton, h3{
+  font-size:20px;
+}
+
+.btn {
+  background-color: darkblue;
+  display: block;
+  color: white;
+  border: none;
+}
+
+.btn:hover {
+  background-color: lightblue;
+  color: black;
+}
