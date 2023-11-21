@@ -1,0 +1,8 @@
+<div class="form">
+  <h1>Update your toy</h1>
+
+  <div class="form-size">
+    <%= render "form", thing: @toy %>
+    <%= link_to "Cancel", toy_path(@toy), class: "button btn btn-primary"%>
+  </div>
+</div>
