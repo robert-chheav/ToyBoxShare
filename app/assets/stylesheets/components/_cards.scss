@@ -4,7 +4,8 @@
   margin: 30px 20px;
   padding: 20px 30px;
   box-shadow: rgba(0, 0, 0, 0.08) 2px 4px 6px 1px;
-  border-radius: 2px;
+  border-radius: 8px;
+  background-color: white;
   transition: transform .2s;
   &:hover {
     transform: scale(1.05)
@@ -20,13 +21,17 @@
     margin: 0;
   }
 
-  button {
+  .button {
     background-color: $darkblue;
     border-radius: 5px;
     color: $white;
     border: none;
     padding: 5px 8px;
     margin-top: 5px;
+
+    a {
+      color: white;
+    }
   }
 }
 

@@ -1,6 +1,18 @@
+<div class="container mt-5">
+  <h1>Your Reservations</h1>
+    <div class='cards'>
+      <% @reservations.each do |reservation| %>
+      <div class="cards-container">
+        <div class="container-image">
+          <%= cl_image_tag reservation.toy.image_url, alt: "procuct.name.photo", class: "img"%>
+        </div>
+        <div class="card-details">
+          <h3><%= reservation.toy.name %></h3>
+          <p><%= reservation.toy.location %></p>
+          <button class='button'><%= link_to "Manage" %></button>
 
-<h1>Your Reservations</h1>
-<% @reservations.each do |reservation| %>
-<%= reservation.toy.name %>
-<% end %>
-
+        </div>
+      </div>
+      <% end %>
+    </div>
+</div>
