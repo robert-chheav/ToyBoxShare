@@ -10,7 +10,9 @@
     <% @toys.each do |toy| %>
     <a href="<%= toy_path(toy) %>">
     <div class="cards-container">
-      <img src="#" alt="product.name.photo">
+      <div class="container-image">
+        <%= cl_image_tag toy.image_url, alt: "procuct.name.photo", class: "img"%>
+      </div>
       <div class="card-details">
         <h3><%= toy.name %></h3>
         <p><%= toy.location %></p>
