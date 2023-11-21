@@ -1,8 +1,8 @@
 <div class="toy-container">
-  <div class="toy-image column"> 
-    <img class="product-image" src="" alt="">
+  <div class="toy-image column">
+    <%= cl_image_tag @toy.image_url, alt: "procuct.name.photo", class: "product-image"%>
   </div>
-  <div class="toy-details column"> 
+  <div class="toy-details column">
     <h2><%= @toy.name %></h2>
     <h3 class="toy-header-descripiton"> Descripiton </h2>
     <p><%= @toy.description %><p>

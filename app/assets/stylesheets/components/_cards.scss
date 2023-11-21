@@ -21,24 +21,33 @@
   }
 
   button {
-    background-color: $red;
+    background-color: $darkblue;
     border-radius: 5px;
     color: $white;
     border: none;
     padding: 5px 8px;
+    margin-top: 5px;
   }
+}
+
+.container-image {
+  width: 100%;
+  height: 200px;
+  overflow-y: hidden;
 }
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
-  
+
   a {
     text-decoration: none;
   }
 
   img {
-    height: 200px;
+    margin-top: -10px;
+    width: 100%;
+    object-fit: cover;
     background-color: rgb(180, 180, 255);
     margin-bottom: 10px;
   }
@@ -47,6 +56,10 @@
   background-size: cover;
   padding: 200px;
   margin:10px;
+}
+
+.card-details {
+  margin-top: 10px;
 }
 
 // Smallest device
