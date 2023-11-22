@@ -3,7 +3,7 @@ class Reservation < ApplicationRecord
   belongs_to :user
   belongs_to :toy
   validate :booking_date_end_after_booking_date_start
-  validates :booking_date_start, :booking_date_end, overlap: { scope: 'toy_id', message_content: "This toy is already booked on this date."}
+  validates :booking_date_start, :booking_date_end, overlap: { scope: 'toy_id', message_content: ": this toy is already booked on this date."}
 
   private
 
