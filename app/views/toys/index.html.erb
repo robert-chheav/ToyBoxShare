@@ -8,16 +8,16 @@
 
   <div class='cards'>
     <% @toys.each do |toy| %>
-    <a href="<%= toy_path(toy) %>">
     <div class="cards-container">
       <div class="container-image">
         <%= cl_image_tag toy.image_url, alt: "procuct.name.photo", class: "img"%>
       </div>
       <div class="card-details">
+        <a href="<%= toy_path(toy) %>">
         <h3><%= toy.name %></h3>
         <p><%= toy.location %></p>
         <p><%= toy.price %><%= '€/day' %></p>
-        <button>Reserve</button>
+        <button class='button'><%= link_to "Reserve", new_toy_reservation_path(toy) %></button>
       </div>
     </div>
       <%#= render 'layouts/card' %>
