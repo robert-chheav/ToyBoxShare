@@ -25,6 +25,12 @@ class ReservationsController < ApplicationController
     # @toy = Toy.find(params[:toy_id])
     # @review = Review.new
 
+    def destroy
+        @reservation = Reservation.find(params[:id])
+        @reservation.destroy
+        redirect_to toy_reservations_path, status: :see_other
+    end
+
     private
     def set_toy
         @toy = Toy.find(params[:toy_id])
