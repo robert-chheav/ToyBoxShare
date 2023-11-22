@@ -1,4 +1,7 @@
-<h2>Sign up</h2>
+<div class="container login-flex mt-5">
+
+  <div class='login-container'>
+  <h2>Welcome to ToyBoxShare !</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
@@ -27,3 +30,6 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+  </div>
+</div>
