@@ -78,3 +78,5 @@ gem "devise"
 gem 'faker'
 gem "dotenv-rails"
 gem "cloudinary"
+gem "geocoder"
+

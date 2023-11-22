@@ -6,6 +6,14 @@ class ToysController < ApplicationController
 
   def show
     @toy = Toy.find(params[:id])
+    @markers = @toys.geocoded.map do |toy|
+      {
+        lat: toy.latitude,
+        lng: toy.longitude
+        info_window_html: render_to_string(partial: "info_window", locals: {toy: toy})
+        marker_html: render_to_string(partial: "marker")
+      }
+    end
   end
 
   def new
