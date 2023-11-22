@@ -14,6 +14,7 @@ class ToysController < ApplicationController
         marker_html: render_to_string(partial: "marker")
       }
     end
+    @dates_availability = Reservation.pluck(:booking_date_start).map { |date| date.strftime(" %Y-%m-%e") }
   end
 
   def new

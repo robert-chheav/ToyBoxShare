@@ -1,18 +1,29 @@
 <div class="toy-container">
-  <div class="toy-image column">
-    <%= cl_image_tag @toy.image_url, alt: "procuct.name.photo", class: "product-image"%>
+  <div class="toy-image">
+     <%= cl_image_tag @toy.image_url, alt: "procuct.name.photo", class: "product-image"%>
   </div>
-  <div class="toy-details column">
+  <div class="toy-details">
     <h2><%= @toy.name %></h2>
-    <h3 class="toy-header-descripiton"> Descripiton </h2>
-    <p><%= @toy.description %><p>
-      <div class="toy-reservation.details border p-5">
-        <div class="toy-price.details">
-          <p><%= @toy.price %> '€/day'</p>
-          <p> PickerDate </p>
-          <button class="btn">Reserve</button>
-        </div>
+    <div class="descripiton">
+      <h3>Descripiton</h3>
+      <p><%= @toy.description %></p>
+    </div>
+    <div class="toy-reservation-details">
+      <p class="price"><strong><%= @toy.price %>€</p>
+      <div class="toy-datepicker">
+        <p>Date Picker</p>
+        <p>Start</p>
+        <p>21-11-2023</p>
+        <p>End</p>
+        <p>22-11-2023</p>
+      <div>
+      <button class="btn">Reserve</button>
+      <div class="total-price">
+        <p>Total</p>
+        <p>Price'€/day'</p>
+        <p>Total</p>
       </div>
+    </div>
   </div>
 </div>
 
