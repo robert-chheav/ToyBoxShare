@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   resources :users do
     resources :reservations
   end
+
+  resources :reservations, only: :destroy
   # Defines the root path route ("/")
   # root "posts#index"
 end
