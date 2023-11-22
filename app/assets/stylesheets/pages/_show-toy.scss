@@ -1,40 +1,73 @@
 .toy-container {
-  background-color: white;
-  padding:100px;
+  background-color: lightgrey;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  justify-content: center;
+  padding: 0px 300px;
+}
+
+// .toy-details {
+//   border: 1px solid black; /* Set the color and thickness of the border */
+//   padding: 50px; /* Optional: Add padding to the content inside the div */
+// }
+
+.toy-image {
+  max-width: 100%;
+  height: auto;
+  padding:50px;
   display:flex;
   justify-content: center;
+
+  image {
+  width: 100%;
+  }
+
 }
 
-.column {
-  flex: 1; /* Distribute space equally among columns */
-  margin: 50px; /* Add some margin for spacing between columns */
+
+.toy-reservation-details {
+  border-radius: 8px;
+  background-color: white;
+  padding: 20px;
+  border: 1px solid grey;
+  box-shadow: 10px 5px 5px lightgrey;
+
+  .price {
+    font-weight: bold;
+    font-size:25px;
+  }
 }
 
-.toy-reservation.details {
-  border: 2px solid black; /* Set the color and thickness of the border */
-  padding: 50px; /* Optional: Add padding to the content inside the div */
+.toy-details {
+  background-color: white;
+  padding: 50px;
+  color:black;
 }
 
-.product-image {
-  height: 600px;
-  width: 600px;
-  background-color:lightblue;
-  padding:50px;
+.toy-datepicker {
+  color: white;
+  padding:10px;
+  color:black;
 }
 
-.toy-header-descripiton, h2{
-  font-size:35px;
+
+.total-price {
+  display: flex;
+  margin: 10px;
+
+  p {
+  padding: 10px;
+  }
+
 }
 
-.toy-header-descripiton, h3{
-  font-size:20px;
-}
 
 .btn {
-  background-color: darkblue;
-  display: block;
+  background-color:red;
+  width: 100%;
   color: white;
   border: none;
+  border-radius: 8px;
 }
 
 .btn:hover {
