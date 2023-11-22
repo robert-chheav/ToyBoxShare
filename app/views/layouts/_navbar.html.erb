@@ -1,7 +1,7 @@
 <div class="navbar">
     <div class="container-fluid">
       <div class="navbar-nav">
-        <%= link_to image_tag("ToyBoxShare-white.png"), root_path, id:"logo"%>
+        <%= link_to image_tag("ToyBoxShare-final-logo.png"), root_path, id:"logo"%>
         <%= link_to "All Toys", toys_path, class:"nav-link text-gray" %>
         <%= link_to "My Reservation", user_reservations_path(:user_id), class:"nav-link text-gray" %>
         <%= link_to "My Toys on Market", new_toy_path, class:"nav-link text-gray" %>
@@ -11,13 +11,12 @@
       <ul>
         <li class="checkin">
         <% if user_signed_in? %>
-          <%= link_to "Logout", destroy_user_session_path, data: {turbo_method: :delete}, class:"nav-link text-white" %>
-          <% else %>
-          <%= link_to "Login", new_user_session_path, class:"nav-link text-white"%>
-          <%= link_to "Signin", new_user_registration_path, class:"nav-link text-white" %>
+       <%= link_to "Logout", destroy_user_session_path, data: {turbo_method: :delete}, class:"checkin-nav text-white"%>
+        <% else %>
+          <%= link_to "Login", new_user_session_path, class:"checkin-nav text-white"%>
+          <%= link_to "Signin", new_user_registration_path, class:"checkin-nav text-white" %>
         <% end %>
         </li>
       </ul>
     </div>
 </div>
-
