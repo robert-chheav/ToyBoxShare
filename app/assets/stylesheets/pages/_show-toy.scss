@@ -24,17 +24,17 @@
 
 }
 
-
 .toy-reservation-details {
   border-radius: 8px;
   background-color: white;
   padding: 20px;
   border: 1px solid grey;
-  box-shadow: 10px 5px 5px lightgrey;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
   .price {
     font-weight: bold;
     font-size:25px;
+    padding: 10px;
   }
 }
 
@@ -42,6 +42,15 @@
   background-color: white;
   padding: 50px;
   color:black;
+
+  h2 {
+    font-size: 30px;
+    font-style: bold;
+  }
+
+  h3 {
+    font-size: 20px;
+  }
 }
 
 .toy-datepicker {
@@ -53,14 +62,13 @@
 
 .total-price {
   display: flex;
-  margin: 10px;
+  border-top: 1px solid lightgrey;
 
   p {
   padding: 10px;
   }
 
 }
-
 
 .btn {
   background-color:red;
