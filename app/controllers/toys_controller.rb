@@ -6,6 +6,7 @@ class ToysController < ApplicationController
 
   def show
     @toy = Toy.find(params[:id])
+    @dates_availability = Reservation.pluck(:booking_date_start).map { |date| date.strftime(" %Y-%m-%e") }
   end
 
   def new
