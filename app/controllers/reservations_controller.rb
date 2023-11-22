@@ -4,10 +4,11 @@ class ReservationsController < ApplicationController
     def index
         @reservations = Reservation.all
     end
+    
     def new
         @reservation = Reservation.new
         @reservation.toy = @toy
-    end 
+    end
     def create
         @reservation = Reservation.new(reservation_params)
         @reservation.toy = @toy
@@ -18,8 +19,9 @@ class ReservationsController < ApplicationController
             render :new, status: :unprocessable_entity
         end
     end
+
     # def show
-    #     @reservation = 
+    #     @reservation =
     # end
 
     # @toy = Toy.find(params[:toy_id])
