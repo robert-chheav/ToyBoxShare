@@ -1,5 +1,5 @@
 import { Controller } from "@hotwired/stimulus"
-import mapboxgl from 'mapbox-gl' // Don't forget this!
+import mapboxgl from 'mapbox-gl'
 
 export default class extends Controller {
   static values = {
@@ -12,17 +12,19 @@ export default class extends Controller {
 
     this.map = new mapboxgl.Map({
       container: this.element,
-      style: "mapbox://styles/mapbox/streets-v10"
+      style: "mapbox://styles/iloverob/clp9uq2zc003e01pjaoki6wu7",
     })
 
-    this.addMarkersToMap()
+    this.#addMarkersToMap()
   }
   
-  addMarkersToMap() {
+  #addMarkersToMap() {
     this.markersValue.forEach((marker) => {
-      new mapboxgl.Marker()
+      const customMarker = document.createElement("div")
+      customMarker.innerHTML = marker.marker_html
+
+      new mapboxgl.Marker(customMarker)
       .setLngLat([ marker.lng, marker.lat ])
-      .setPopup(popup) 
       .addTo(this.map)
   });
   }
