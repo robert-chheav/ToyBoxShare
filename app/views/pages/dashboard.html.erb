@@ -5,7 +5,13 @@
       <% @reservations.each do |reservation| %>
       <div class="cards-container">
         <div class="container-image">
-          <%# <%= cl_image_tag reservation.toy.image_url, alt: "procuct.name.photo", class: "img"%>
+          <div class="img">
+          <% if reservation.toy.image_url.attached? %>
+          <%= cl_image_tag (reservation.toy.image_url.key)%>
+          <% else %>
+          <%= image_tag 'image-default.jpeg' %>
+          <% end %>
+          </div>
         </div>
         <div class="card-details">
           <h3><%= reservation.toy.name %></h3>
@@ -20,7 +26,13 @@
       <% @toys.each do |toy| %>
       <div class="cards-container">
         <div class="container-image">
-          <%# <%= cl_image_tag reservation.toy.image_url, alt: "procuct.name.photo", class: "img"%>
+          <div class="img">
+            <% if toy.image_url.attached? %>
+              <%= cl_image_tag (toy.image_url.key)%>
+            <% else %>
+              <%= image_tag 'image-default.jpeg' %>
+            <% end %>
+          </div>
         </div>
         <div class="card-details">
           <h3><%= toy.name %></h3>
