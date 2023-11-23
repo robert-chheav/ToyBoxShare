@@ -1,10 +1,22 @@
 <%= simple_form_for(thing) do |f| %>
-  <%= f.input :name, :label => "Toy name" %>
+  <%= f.input :name, label: "Toy name" %>
   <%= f.input :price %>
   <%= f.input :description %>
-  <%= f.input :photo_url, as: :file, :label => "Photo" %>
-  <%= f.input :location %>
-  <%= f.input :age %>
+  <%= f.input :photo_url, as: :file, label: "Photo" %>
+  <%= f.input :location,
+      wrapper_html: { data: { controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"] } },
+      autocomplete: "on" %>
 
   <%= f.submit class: 'button btn btn-primary'%>
 <% end %>
+
+<%# <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const locationInput = document.getElementById('thing_location'); 
+    const wrapper = document.getElementById('location_wrapper');
+    locationInput.addEventListener('input', function() {
+      const inputValue = locationInput.value;
+      wrapper.innerText = inputValue;
+    });
+  });
+</script> %>

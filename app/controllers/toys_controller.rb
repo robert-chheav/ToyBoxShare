@@ -15,13 +15,14 @@ class ToysController < ApplicationController
     #   }
     
     # end
-
-    @markers = [{
-      lat: @toy.latitude,
-      lng: @toy.longitude
-      # info_window_html: render_to_string(partial: "info_window", locals: {toy: @toy}),
-      # marker_html: render_to_string(partial: "marker")
-    }]
+    
+    @markers = [
+      {
+        lat: @toy.latitude,
+        lng: @toy.longitude,
+        marker_html: render_to_string(partial: "marker")
+      },
+    ]
 
     @dates_availability = Reservation.pluck(:booking_date_start).map { |date| date.strftime(" %Y-%m-%e") }
   end
