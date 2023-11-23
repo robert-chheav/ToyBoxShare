@@ -16,29 +16,28 @@
           <p><%= @toy.description %></p>
         </div>
         <div class="toy-reservation-details">
-          <p class="price"><strong><%= @toy.price %>€</p>
-          <div class="toy-datepicker">
-            <p>Date Picker</p>
-            <p>Start</p>
-            <p>21-11-2023</p>
-            <p>End</p>
-            <p>22-11-2023</p>
-            <button class="btn">Reserve</button>
-            <div class="total-price">
-              <p>Total</p>
-              <p>Price'€/day'</p>
-              <p>Total</p>
-            </div>
+          <p class="price"><strong>€<%= @toy.price.to_i %>  /day</p>
+          <div class="container" data-controller='toggle' data-toggle-price-value="<%= @toy.price %>">
+            <%= simple_form_for [@toy, @reservation] do |f| %>
+              <%= f.input :booking_date_start, as: :string, input_html: { data: { controller: "datepicker", datepicker_dates_value: @dates_availability, action: 'change->toggle#setStartDate' } }, placeholder: "Startdate" ,label: "Duration of Rent"%>
+              <%= f.input :booking_date_end, as: :string, input_html: { data: { controller: "datepicker", action: 'change->toggle#setEndDate' } } , placeholder: "Enddate", label:false%>
+              <p data-toggle-target="priceText"></p>
+              <%= f.submit "Reserve", class: 'btn btn-primary'%>
+            <% end %>
           </div>
         </div>
       </div>
   </div>
-  <div class="map-container-header">
-    <h2>Location</h2>
-  <div class="map-container" style="width: 100%; height: 400px;"
-      data-controller="map"
-      data-map-markers-value="<%= @markers.to_json %>"
-      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  <div class="map">
+    <div class="location">
+      <h2>Location</h2> 
+      <%= @toy.location %></p>
+    </div>
+    <div class="map-container" style="width: 100%; height: 400px;"
+        data-controller="map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
   </div>
   </div>
 </div>

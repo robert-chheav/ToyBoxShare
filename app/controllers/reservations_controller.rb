@@ -5,10 +5,10 @@ class ReservationsController < ApplicationController
     @reservations = Reservation.all
   end
 
-  def new
-    @reservation = Reservation.new
-    @reservation.toy = @toy
-  end
+  # def new
+  #   @reservation = Reservation.new
+  #   @reservation.toy = @toy
+  # end
 
   def create
     @reservation = Reservation.new(reservation_params)
