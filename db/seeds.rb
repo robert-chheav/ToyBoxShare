@@ -17,11 +17,11 @@ user_3 = User.create!(email: "test2@test.com", password: "123456", username: "To
 
 puts "Creating toys..."
 
-doll = { name: Faker::Name.name, price: Faker::Number.number(digits: 2), description: Faker::Lorem.sentence(word_count: 3), location: "Amsterdam", age: Faker::Number.number(digits: 1), user_id: user_1.id, image_url: nil}
-uno = { name: Faker::Name.name, price: Faker::Number.number(digits: 2), description: Faker::Lorem.sentence(word_count: 3), location: "Amsterdam", age: Faker::Number.number(digits: 1), user_id: user_2.id, image_url: nil}
-mattress = { name: Faker::Name.name, price: Faker::Number.number(digits: 2), description: Faker::Lorem.sentence(word_count: 3), location: "Amsterdam", age: Faker::Number.number(digits: 1), user_id: user_3.id, image_url: nil}
-ball = { name: Faker::Name.name, price: Faker::Number.number(digits: 2), description: Faker::Lorem.sentence(word_count: 3), location: "Amsterdam", age: Faker::Number.number(digits: 1), user_id: user_1.id, image_url: nil}
-barbie = { name: Faker::Name.name, price: Faker::Number.number(digits: 2), description: Faker::Lorem.sentence(word_count: 3), location: "Amsterdam", age: Faker::Number.number(digits: 1), user_id: user_1.id, image_url: nil}
+doll = { name: Faker::Name.name, price: Faker::Number.number(digits: 2), description: Faker::Lorem.sentence(word_count: 3), location: "Amsterdam", age: "0-6 MONTHS", user_id: user_1.id, image_url: nil}
+uno = { name: Faker::Name.name, price: Faker::Number.number(digits: 2), description: Faker::Lorem.sentence(word_count: 3), location: "Amsterdam", age: '6-12 MONTHS', user_id: user_2.id, image_url: nil}
+mattress = { name: Faker::Name.name, price: Faker::Number.number(digits: 2), description: Faker::Lorem.sentence(word_count: 3), location: "Amsterdam", age: '1-3 YEARS', user_id: user_3.id, image_url: nil}
+ball = { name: Faker::Name.name, price: Faker::Number.number(digits: 2), description: Faker::Lorem.sentence(word_count: 3), location: "Amsterdam", age: '3-6 YEARS', user_id: user_1.id, image_url: nil}
+barbie = { name: Faker::Name.name, price: Faker::Number.number(digits: 2), description: Faker::Lorem.sentence(word_count: 3), location: "Amsterdam", age: '6-12 YEARS', user_id: user_1.id, image_url: nil}
 
 
 [doll, uno, mattress, ball, barbie].each do |attributes|
