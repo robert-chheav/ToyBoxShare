@@ -1,43 +1,46 @@
 class ReservationsController < ApplicationController
-    before_action :set_toy, only: [:new, :create]
+  before_action :set_toy, only: [:new, :create]
 
-    def index
-        @reservations = Reservation.all
-    end
-    
-    def new
-        @reservation = Reservation.new
-        @reservation.toy = @toy
-    end
-    def create
-        @reservation = Reservation.new(reservation_params)
-        @reservation.toy = @toy
-        @reservation.user = current_user
-        if @reservation.save
-            redirect_to toys_path
-        else
-            render :new, status: :unprocessable_entity
-        end
-    end
+  def index
+    @reservations = Reservation.all
+  end
 
-    # def show
-    #     @reservation =
-    # end
+  def new
+    @reservation = Reservation.new
+    @reservation.toy = @toy
+  end
 
-    # @toy = Toy.find(params[:toy_id])
-    # @review = Review.new
+  def create
+    @reservation = Reservation.new(reservation_params)
+    @reservation.toy = @toy
+    @reservation.user = current_user
+    if @reservation.save
+      redirect_to user_reservations_path(:user_id)
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
 
-    def destroy
-        @reservation = Reservation.find(params[:id])
-        @reservation.destroy
-        redirect_to toy_reservations_path, status: :see_other
-    end
+  # def show
+  #     @reservation =
+  # end
 
-    private
-    def set_toy
-        @toy = Toy.find(params[:toy_id])
-    end
-    def reservation_params
-        params.require(:reservation).permit(:booking_date_start, :booking_date_end)
-    end
+  # @toy = Toy.find(params[:toy_id])
+  # @review = Review.new
+
+  def destroy
+    @reservation = Reservation.find(params[:id])
+    @reservation.destroy
+    redirect_to reservation_path(@reservation), status: :see_other
+  end
+
+  private
+
+  def set_toy
+    @toy = Toy.find(params[:toy_id])
+  end
+
+  def reservation_params
+    params.require(:reservation).permit(:booking_date_start, :booking_date_end)
+  end
 end
