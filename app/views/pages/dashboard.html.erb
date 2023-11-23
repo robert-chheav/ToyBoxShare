@@ -31,9 +31,9 @@
       </div>
       <% end %>
     </div>
-    <div>
-      <button>Sell a toy</button>
-    <div class="">
+    <div data-controller="toggle">
+      <button data-action="click->toggle#show">Sell a toy</button>
+    <div class="d-none" data-toggle-target="togglable">
       <%= render "toys/form", thing: @toy %>
       </div>
     </div>
