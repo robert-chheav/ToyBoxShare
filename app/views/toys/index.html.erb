@@ -1,10 +1,6 @@
-<div class="banner-index bg-black">
+<div class="banner-index">
 </div>
-<div class="container my-5">
-
-  <div class="mb-4">
-    <%= link_to "< Back to home", root_path %>
-  </div>
+<div class="container mt-5">
 
   <h2>All the toys</h2>
 
@@ -18,27 +14,20 @@
       <%= link_to "12+ YEARS", toys_path(age: "12+ YEARS"), class: "filter" %>
     </div>
 
-  <div class='cards'>
-    <% @toys.each do |toy| %>
-    <div class="cards-container">
-      <div class="container-image">
-        <div class="img">
-          <% if toy.image_url.attached? %>
-            <%= cl_image_tag(toy.image_url.key) %>
-          <% else %>
-            <%= image_tag 'image-default.jpeg'%>
-          <% end %>
+     <div class="cards">
+      <% @toys.each do |toy|%>
+        <a href="<%= new_toy_reservation_path(toy.id) %>">
+        <div class="home-card">
+          <div class="home-username"><i class="fa-solid fa-circle-user"></i><%= toy.user.username %></div>
+          <div class="image-home-toy" style="background-image: url(<%= toy.image_url.attached? ? cl_image_path(toy.image_url.key) :asset_path('image-default.jpeg')%>)">
+          </div>
+          <div class="px-3">
+          <h3><%= toy.name %></h3>
+          <p><%=toy.price.to_i%> EUR per day</p>
+          <p><%=toy.age%> months</p>
+          <p>Amsterdam 1084VV today at 14:55</p>
+          </div>
         </div>
-      </div>
-      <div class="card-details">
-        <a href="<%= toy_path(toy) %>">
-        <h3><%= toy.name %></h3>
-        <p><%= toy.location %></p>
-        <p><%= toy.price %><%= '€/day' %></p>
-        <button class='button'><%= link_to "Reserve", new_toy_reservation_path(toy) %></button>
-      </div>
+      <% end %>
     </div>
-      <%#= render 'layouts/card' %>
-    <% end %>
-  </div>
 </div>
