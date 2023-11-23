@@ -1,21 +1,21 @@
 class ToysController < ApplicationController
-  skip_before_action :authenticate_user!, only: :index
+  skip_before_action :authenticate_user!, only: [:index, :show]
   def index
     @toys = Toy.all
   end
 
   def show
     @toy = Toy.find(params[:id])
-    # @markers = [@toy].map do |toy| 
+    # @markers = [@toy].map do |toy|
     #   {
     #     lat: toy.latitude,
     #     lng: toy.longitude
     #     # info_window_html: render_to_string(partial: "info_window", locals: {toy: toy}),
     #     # marker_html: render_to_string(partial: "marker")
     #   }
-    
+
     # end
-    
+
     @markers = [
       {
         lat: @toy.latitude,
