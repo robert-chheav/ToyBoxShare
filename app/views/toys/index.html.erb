@@ -21,6 +21,7 @@
   <div class='cards'>
     <% @toys.each do |toy| %>
     <div class="cards-container">
+    <a href="<%= toy_path(toy) %>">
       <div class="container-image">
         <div class="img">
           <% if toy.image_url.attached? %>
@@ -31,7 +32,6 @@
         </div>
       </div>
       <div class="card-details">
-        <a href="<%= toy_path(toy) %>">
         <h3><%= toy.name %></h3>
         <p><%= toy.location %></p>
         <p><%= toy.price %><%= '€/day' %></p>
