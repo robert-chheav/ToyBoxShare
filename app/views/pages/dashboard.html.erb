@@ -1,40 +1,53 @@
-<div class="dasboard-container">
-  <h1>Dashboard</h1>
-  <h2>My reservations</h2>
-    <div class='cards'>
-      <% @reservations.each do |reservation| %>
-      <div class="cards-container">
-        <div class="container-image">
-          <%# <%= cl_image_tag reservation.toy.image_url, alt: "procuct.name.photo", class: "img"%>
+<div class="container mt-5 px-4">
+  <div class="dashboard-container">
+    <h1><i class="fa-solid fa-circle-user"></i> Welcome user</h1>
+
+    <h2>My reservations</h2>
+    <div class='my-reservation-box'>
+        <div class='cards'>
+          <% @reservations.each do |reservation| %>
+          <div class="cards-container">
+            <div class="container-image">
+              <%# <%= cl_image_tag reservation.toy.image_url, alt: "procuct.name.photo", class: "img"%>
+            </div>
+            <div class="card-details">
+              <h3><%= reservation.toy.name %></h3>
+              <p><%= reservation.toy.location %></p>
+              <button class='button'><%= link_to "Manage" %></button>
+              <%= link_to "Delete",  reservation_path(reservation), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+            </div>
+          </div>
+          <% end %>
         </div>
-        <div class="card-details">
-          <h3><%= reservation.toy.name %></h3>
-          <p><%= reservation.toy.location %></p>
-          <button class='button'><%= link_to "Manage" %></button>
-          <%= link_to "Delete",  reservation_path(reservation), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-        </div>
-      </div>
-      <% end %>
     </div>
-  <h2>My Toys</h2>
-      <% @toys.each do |toy| %>
-      <div class="cards-container">
-        <div class="container-image">
-          <%# <%= cl_image_tag reservation.toy.image_url, alt: "procuct.name.photo", class: "img"%>
-        </div>
-        <div class="card-details">
+
+
+    <h2 class="mt-5">My Toys</h2>
+    <div class='my-toys-box'>
+              <div class="cards">
+      <% @toys.each do |toy|%>
+        <a href="<%= toy_path(toy) %>">
+        <div class="home-card">
+          <div class="home-username"><i class="fa-solid fa-circle-user"></i><%= toy.user.username %></div>
+          <div class="image-home-toy" style="background-image: url(<%= toy.image_url.attached? ? cl_image_path(toy.image_url.key) :asset_path('image-default.jpeg')%>)">
+          </div>
+          <div class="px-3">
           <h3><%= toy.name %></h3>
-          <p><%= toy.location %></p>
-          <button class='button'><%= link_to "Manage" %></button>
-          <%= link_to "Delete",  toy_path(toy), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+          <p><%=toy.price.to_i%> EUR per day</p>
+          <p><%=toy.age%> months</p>
+          <p>Amsterdam 1084VV today at 14:55</p>
+          </div>
         </div>
-      </div>
       <% end %>
     </div>
-    <div data-controller="toggle">
-      <button data-action="click->toggle#show">Sell a toy</button>
-    <div class="d-none" data-toggle-target="togglable">
-      <%= render "toys/form", thing: @toy %>
-      </div>
+        <div data-controller="toggle">
+          <button data-action="click->toggle#show">Sell a toy</button>
+          <div class="d-none" data-toggle-target="togglable">
+            <%= render "toys/form", thing: @toy %>
+          </div>
+        </div>
+        </div>
     </div>
+
+  </div>
 </div>
