@@ -1,4 +1,51 @@
 // Specific CSS for your home-page
 .page-wrapper {
-  background-color: #f7f7f7;
+  background-color: #f7f7f73b;
+}
+
+.category-filter {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+
+  span {
+    display: flex;
+    gap: 50px;
+    font-weight: 500;
+  }
+}
+
+
+
+.home-card {
+  display: flex;
+  flex-direction: column;
+  max-width: 250px;
+  transition: transform .2s;
+  &:hover {
+    transform: scale(1.05)
+  }
+
+  .image-home-toy {
+    height: 200px;
+    width: 100%;
+    border-radius: 20px;
+    background-color: rgba(70, 73, 73, 0.105);
+  }
+
+  span {
+    background-size: cover;
+    height: 200px;
+  }
+
+  h3 {
+    font-size: 20px;
+  }
+
+  p {
+    font-size: 14px;
+    padding-bottom: 5px;
+    margin: 0;
+  }
+
 }

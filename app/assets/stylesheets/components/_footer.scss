@@ -1,18 +1,29 @@
 .footer {
-  background: black;
   display: flex;
-  align-items: center;
   justify-content: center;
-  padding: 100px 100px;
-  color: white;
-  position: absolute;
-  bottom: 0;
+  color: $darkblue;
+  // position: absolute;
+  // bottom: 0;
+  margin-top: auto;
   width: 100%;
+  background: linear-gradient(90deg, rgba(0,0,0,0) 10%, rgba(255, 255, 255, 0.805) 50%, rgba(0,0,0,0) 90%);
+
+  span {
+    height: 100%;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 10px;
+    border-top: solid rgba(0, 0, 0, 0.151) 2px;
+  }
+
+  .fa-heart {
+    color: red;
+  }
 }
 
-.footer .fa-heart {
-  color: red;
-}
 
 .fas {
   text-decoration: none;
@@ -39,5 +50,4 @@
   overflow: hidden;
   display: block;
   position: relative;
-  padding-bottom: 300px; /* height of your footer */
  }
