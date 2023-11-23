@@ -1,10 +1,10 @@
 .login-container {
   max-width: 70%;
-  border-radius: 16px;
+  border-radius: 26px;
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.088) 6px 9px 21px;
-  padding: 80px
-
+  padding: 80px;
+  background-image: cover;
 }
 
 .button-sign-in {
@@ -12,12 +12,13 @@
   justify-content: center;
 
   .btn {
-    background-color: $red;
+    background-color: $yellow;
+    color: $darkblue;
     width: 100%;
     border-radius: 8px;
 
     &:hover {
-      background-color: #c52331b9;
+      background-color: $ligthblue;
       color: white;
     }
   }
@@ -28,4 +29,10 @@
 .login-flex {
   display: flex;
   justify-content: center;
+}
+
+.background-login {
+  height: 100vh;
+  background:linear-gradient(0deg, rgba(255, 255, 255, 0.723), rgba(0, 0, 0, 0.194)), url('background-login.jpg');
+  background-size: cover;
 }

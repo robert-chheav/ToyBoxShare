@@ -1,7 +1,48 @@
 .navbar {
   justify-content: space-between;
-  background:rgb(5, 5, 5)
+  background:$darkblue;
+  padding: 20px 30px;
+
+  a {
+    text-decoration: none;
+    color: white;
+  }
+
+  .navbar-auth {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .navbar-nav {
+    display: flex;
+    gap: 20px;
+    flex-direction: row;
+  }
+
+  .button-sigup {
+    background-color: $yellow;
+    border-radius: 8px;
+    padding: 5px 10px;
+    color: $darkblue;
+
+    &:hover {
+      background-color: $ligthblue;
+      color: white;
+      transition: 0.2s;
+    }
+  }
 }
+
+
+.link_to:after {
+  display:block;
+  content: '';
+  border-bottom: solid 3px $ligthblue;
+  transform: scaleX(0);
+  transition: transform 250ms ease-in-out;
+}
+.link_to:hover:after { transform: scaleX(1); }
 
 // .navbar .navbar-collapse {
 //   flex-grow: 0;
@@ -10,34 +51,4 @@
 #logo {
   height: 100;
   width: auto;
-}
-.navbar-nav {
-  display: inline;
-  justify-content: space-between;
-}
-.nav-link{
-  text-decoration: none;
-  display: inline;
-  margin-left: 20px;
-}
-
-.text-gray{
-  color:rgb(185, 185, 185);
-}
-
-.text-gray:hover {
-  color:white
-}
-
-.text-white {
-  color:white;
-}
-.text-white:hover {
-  text-decoration: underline;
-}
-
-.checkin-nav {
-  text-decoration: none;
-  display: inline;
-  margin-left: 20px;
 }
