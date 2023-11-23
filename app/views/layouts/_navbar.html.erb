@@ -3,12 +3,10 @@
         <%= link_to image_tag("ToyBoxShare-final-logo.png"), root_path, id:"logo"%>
       <div class="navbar-nav">
         <%= link_to "All Toys", toys_path, class: "link_to" %>
-        <%= link_to "My Reservation", user_reservations_path(:user_id), class: "link_to" %>
-        <%= link_to "My Toys on Market", new_toy_path, class: "link_to" %>
-        <%= link_to "Post Toys", new_toy_path, class: "link_to" %>
       </div>
 
       <div class='navbar-auth'>
+               <%= link_to "My Dashboard", dashboard_path, class: "link_to" %>
           <% if user_signed_in? %>
             <div>
               <i class="fa-solid fa-right-from-bracket" style="color: #ffffff;"></i>

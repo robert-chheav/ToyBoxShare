@@ -17,8 +17,24 @@
       <% end %>
     </div>
   <h2>My Toys</h2>
-  <ul>
-    <li>
-    </li>
-  </ul>
+      <% @toys.each do |toy| %>
+      <div class="cards-container">
+        <div class="container-image">
+          <%# <%= cl_image_tag reservation.toy.image_url, alt: "procuct.name.photo", class: "img"%>
+        </div>
+        <div class="card-details">
+          <h3><%= toy.name %></h3>
+          <p><%= toy.location %></p>
+          <button class='button'><%= link_to "Manage" %></button>
+          <%= link_to "Delete",  toy_path(toy), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+    <div data-controller="toggle">
+      <button data-action="click->toggle#show">Sell a toy</button>
+    <div class="d-none" data-toggle-target="togglable">
+      <%= render "toys/form", thing: @toy %>
+      </div>
+    </div>
 </div>

@@ -6,6 +6,8 @@ class PagesController < ApplicationController
   
   def dashboard
     @reservations = current_user.reservations
+    @toys = Toy.where(user_id: current_user)
+    @toy = Toy.new
   end
 
 end
