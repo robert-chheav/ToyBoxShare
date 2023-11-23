@@ -2,17 +2,18 @@
   <%= f.input :name, label: "Toy name" %>
   <%= f.input :price %>
   <%= f.input :description %>
-  <%= f.input :photo_url, as: :file, label: "Photo" %>
+  <%= f.input :image_url, as: :file, :label => "Photo" %>
   <%= f.input :location,
       wrapper_html: { data: { controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"] } },
       autocomplete: "on" %>
+  <%= f.input :age, collection: ['0-6 MONTHS', '6-12 MONTHS', '1-3 YEARS', '3-6 YEARS', '6-12 YEARS', '12+ YEARS'] %>
 
   <%= f.submit class: 'button btn btn-primary'%>
 <% end %>
 
 <%# <script>
   document.addEventListener('DOMContentLoaded', function() {
-    const locationInput = document.getElementById('thing_location'); 
+    const locationInput = document.getElementById('thing_location');
     const wrapper = document.getElementById('location_wrapper');
     locationInput.addEventListener('input', function() {
       const inputValue = locationInput.value;

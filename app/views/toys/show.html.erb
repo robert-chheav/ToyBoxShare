@@ -1,7 +1,13 @@
 <div class="toy-card">
   <div class="toy-container">
       <div class="toy-image">
-        <%= cl_image_tag @toy.image_url, alt: "procuct.name.photo", class: "product-image"%>
+         <div class ="product-image">
+            <% if @toy.image_url.attached? %>
+              <%= cl_image_tag(@toy.image_url.key) %>
+            <% else %>
+              <%= image_tag 'image-default.jpeg'%>
+            <% end %>
+        </div>
       </div>
       <div class="toy-details">
         <h2><%= @toy.name %></h2>
@@ -22,7 +28,6 @@
         </div>
       </div>
   </div>
-
   <div class="map">
     <div class="location">
       <h2>Location</h2> 
@@ -33,5 +38,6 @@
         data-map-markers-value="<%= @markers.to_json %>"
         data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
+  </div>
   </div>
 </div>

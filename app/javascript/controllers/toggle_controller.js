@@ -2,7 +2,8 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="toggle"
 export default class extends Controller {
-  static targets = ["priceText"]
+
+  static targets = ["priceText", "togglable"]
   static values = {
     price: Number
   }
@@ -35,6 +36,10 @@ export default class extends Controller {
     const price = this.priceValue
     // console.log(days*price)
     this.priceTextTarget.innerText = `Total: €${days*price}`
-    
+
+  show() {
+    this.togglableTarget.classList.remove("d-none")
+  }
+
   }
 }

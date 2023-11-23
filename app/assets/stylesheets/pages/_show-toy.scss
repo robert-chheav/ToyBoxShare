@@ -23,6 +23,7 @@
 
 .map-container {
   width: 100%;
+  padding-bottom: 10px;
 }
 
 // .toy-details {
@@ -31,8 +32,10 @@
 // }
 
 .toy-image {
+
   height: 100%;
   width: auto;
+
   display:flex;
   justify-content: space-between;
 
@@ -46,7 +49,6 @@
   border-radius: 8px;
   background-color: white;
   padding: 20px;
-  border: 1px solid grey;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
   .price {
