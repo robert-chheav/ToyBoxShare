@@ -17,7 +17,7 @@ class ToysController < ApplicationController
     @toy = Toy.new(toy_params)
     @toy.user = current_user
     if @toy.save
-      redirect_to toys_path
+      redirect_to toy_path(@toy)
     else
       render :new, status: :unprocessable_entity
     end
@@ -42,6 +42,6 @@ class ToysController < ApplicationController
   private
 
   def toy_params
-    params.require(:toy).permit(:name, :price, :description, :location, :age, image)
+    params.require(:toy).permit(:name, :price, :description, :location, :age, :image_url)
   end
 end

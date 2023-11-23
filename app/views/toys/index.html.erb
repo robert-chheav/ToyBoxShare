@@ -10,7 +10,13 @@
     <% @toys.each do |toy| %>
     <div class="cards-container">
       <div class="container-image">
-        <%= cl_image_tag toy.image_url, alt: "procuct.name.photo", class: "img"%>
+        <div class="img">
+          <% if toy.image_url.attached? %>
+            <%= cl_image_tag(toy.image_url.key) %>
+          <% else %>
+            <%= image_tag 'image-default.jpeg'%>
+          <% end %>
+        </div>
       </div>
       <div class="card-details">
         <a href="<%= toy_path(toy) %>">
