@@ -2,10 +2,11 @@
   <%= f.input :name, label: "Toy name" %>
   <%= f.input :price %>
   <%= f.input :description %>
-  <%= f.input :photo_url, as: :file, label: "Photo" %>
+  <%= f.input :image_url, as: :file, :label => "Photo" %>
   <%= f.input :location,
       wrapper_html: { data: { controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"] } },
       autocomplete: "on" %>
+  <%= f.input :age %>
 
   <%= f.submit class: 'button btn btn-primary'%>
 <% end %>
