@@ -1,9 +1,18 @@
+.toy-card {
+  width: 70%;
+  margin: auto;
+  margin-top: 3px;
+}
 .toy-container {
-  background-color: lightgrey;
+  background-color: rgb(255, 255, 255);
   display: grid;
   grid-template-columns: 2fr 1fr;
   justify-content: center;
   padding: 0px 300px;
+}
+
+.map-container {
+  width: 100%;
 }
 
 // .toy-details {

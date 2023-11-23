@@ -1,34 +1,36 @@
-<div class="toy-container">
-  <div class="toy-image">
-     <%= cl_image_tag @toy.image_url, alt: "procuct.name.photo", class: "product-image"%>
-  </div>
-  <div class="toy-details">
-    <h2><%= @toy.name %></h2>
-    <div class="descripiton">
-      <h3>Descripiton</h3>
-      <p><%= @toy.description %></p>
-    </div>
-    <div class="toy-reservation-details">
-      <p class="price"><strong><%= @toy.price %>€</p>
-      <div class="toy-datepicker">
-        <p>Date Picker</p>
-        <p>Start</p>
-        <p>21-11-2023</p>
-        <p>End</p>
-        <p>22-11-2023</p>
-      <div>
-      <button class="btn">Reserve</button>
-      <div class="total-price">
-        <p>Total</p>
-        <p>Price'€/day'</p>
-        <p>Total</p>
+<div class="toy-card">
+  <div class="toy-container">
+      <div class="toy-image">
+        <%= cl_image_tag @toy.image_url, alt: "procuct.name.photo", class: "product-image"%>
       </div>
-    </div>
+      <div class="toy-details">
+        <h2><%= @toy.name %></h2>
+        <div class="descripiton">
+          <h3>Descripiton</h3>
+          <p><%= @toy.description %></p>
+        </div>
+        <div class="toy-reservation-details">
+          <p class="price"><strong><%= @toy.price %>€</p>
+          <div class="toy-datepicker">
+            <p>Date Picker</p>
+            <p>Start</p>
+            <p>21-11-2023</p>
+            <p>End</p>
+            <p>22-11-2023</p>
+            <button class="btn">Reserve</button>
+            <div class="total-price">
+              <p>Total</p>
+              <p>Price'€/day'</p>
+              <p>Total</p>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div class="map-container" style="width: 100%; height: 400px;"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 </div>
 
-<div style="width: 100%; height: 600px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-</div>
