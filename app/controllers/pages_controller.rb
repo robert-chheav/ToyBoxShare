@@ -3,5 +3,9 @@ class PagesController < ApplicationController
   def home
     @home_toys = Toy.all
   end
+  
+  def dashboard
+    @reservations = current_user.reservations
+  end
 
 end

@@ -13,6 +13,7 @@
 
 .map-container {
   width: 100%;
+  padding-bottom: 10px;
 }
 
 // .toy-details {
@@ -21,7 +22,7 @@
 // }
 
 .toy-image {
-  max-width: 100%;
+  // max-width: 100%;
   height: auto;
   padding:50px;
   display:flex;
@@ -37,7 +38,6 @@
   border-radius: 8px;
   background-color: white;
   padding: 20px;
-  border: 1px solid grey;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
   .price {

@@ -1,7 +1,21 @@
 class ToysController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   def index
-    @toys = Toy.all
+    if params[:age].present? && params[:age] == "0-6 MONTHS"
+      @toys = Toy.age_0_6_MONTHS
+    elsif params[:age].present? && params[:age] == "6-12 MONTHS"
+      @toys = Toy.age_6_12_MONTHS
+    elsif params[:age].present? && params[:age] == "1-3 YEARS"
+      @toys = Toy.age_1_3_YEARS
+    elsif params[:age].present? && params[:age] == "3-6 YEARS"
+      @toys = Toy.age_3_6_YEARS
+    elsif params[:age].present? && params[:age] == "6-12 YEARS"
+      @toys = Toy.age_6_12_YEARS
+    elsif params[:age].present? && params[:age] == "12+ YEARS"
+      @toys = Toy.age_12_YEARS
+    else
+      @toys = Toy.all
+    end
   end
 
   def show
