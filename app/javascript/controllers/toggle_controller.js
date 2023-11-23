@@ -36,10 +36,10 @@ export default class extends Controller {
     const price = this.priceValue
     // console.log(days*price)
     this.priceTextTarget.innerText = `Total: €${days*price}`
+  }
 
   show() {
     this.togglableTarget.classList.remove("d-none")
   }
 
-  }
 }
