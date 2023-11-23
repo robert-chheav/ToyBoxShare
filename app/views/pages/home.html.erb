@@ -19,13 +19,19 @@
 
     <p>0-6 MONTHS</p>
     <div class="cards">
-      <div class="home-card">
-        <div class="home-username"><i class="fa-solid fa-circle-user"></i> username</div>
-        <div class="image-home-toy"></div>
-        <h4>Uno game</h4>
-        <p>9€ per day</p>
-        <p>0 months</p>
-        <p>Amsterdam 1084VV today at 14:55</p>
-      </div>
+      <% @home_toys.each do |toy|%>
+        <a href="<%= toy_path(toy) %>">
+        <div class="home-card">
+          <div class="home-username"><i class="fa-solid fa-circle-user"></i><%= toy.user.username %></div>
+          <div class="image-home-toy" style="background-image: url(<%= toy.image_url.attached? ? cl_image_path(toy.image_url.key) :asset_path('image-default.jpeg')%>)">
+          </div>
+          <div class="px-3">
+          <h3><%= toy.name %></h3>
+          <p><%=toy.price.to_i%> EUR per day</p>
+          <p><%=toy.age%> months</p>
+          <p>Amsterdam 1084VV today at 14:55</p>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>

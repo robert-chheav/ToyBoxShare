@@ -1,5 +1,5 @@
 class ToysController < ApplicationController
-  skip_before_action :authenticate_user!, only: :index
+  skip_before_action :authenticate_user!, only: [:index, :show]
   def index
     if params[:age].present? && params[:age] == "0-6 MONTHS"
       @toys = Toy.age_0_6_MONTHS
