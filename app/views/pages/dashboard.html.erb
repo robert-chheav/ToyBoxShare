@@ -1,3 +1,4 @@
+
 <div class="dasboard-container">
   <h1>Dashboard</h1>
   <h2>My reservations</h2>
@@ -12,16 +13,10 @@
           <%= image_tag 'image-default.jpeg' %>
           <% end %>
           </div>
+
         </div>
-        <div class="card-details">
-          <h3><%= reservation.toy.name %></h3>
-          <p><%= reservation.toy.location %></p>
-          <button class='button'><%= link_to "Manage" %></button>
-          <%= link_to "Delete",  reservation_path(reservation), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-        </div>
-      </div>
-      <% end %>
     </div>
+
   <h2>My Toys</h2>
       <% @toys.each do |toy| %>
       <div class="cards-container">
@@ -35,18 +30,23 @@
           </div>
         </div>
         <div class="card-details">
+
           <h3><%= toy.name %></h3>
-          <p><%= toy.location %></p>
-          <button class='button'><%= link_to "Manage" %></button>
-          <%= link_to "Delete",  toy_path(toy), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+          <p><%=toy.price.to_i%> EUR per day</p>
+          <p><%=toy.age%> months</p>
+          <p>Amsterdam 1084VV today at 14:55</p>
+          </div>
         </div>
-      </div>
       <% end %>
     </div>
-    <div data-controller="toggle">
-      <button data-action="click->toggle#show">Sell a toy</button>
-    <div class="d-none" data-toggle-target="togglable">
-      <%= render "toys/form", thing: @toy %>
-      </div>
+        <div data-controller="toggle">
+          <button data-action="click->toggle#show">Sell a toy</button>
+          <div class="d-none" data-toggle-target="togglable">
+            <%= render "toys/form", thing: @toy %>
+          </div>
+        </div>
+        </div>
     </div>
+
+  </div>
 </div>
