@@ -10,15 +10,16 @@
         <%= image_tag ("home-page-story.png")%>
     </div>
 
-      <h2> <i class="fa-solid fa-heart" style="color: #cc0000;"></i> Our favorite pick!</h2>
-      <%= link_to "See more toys", toys_path, class:'button p-2' %>
 
+       <h2> <i class="fa-solid fa-heart" style="color: #cc0000;"></i> Our favorite pick!</h2>
+      <%= link_to "See more toys", toys_path, class:'button p-2' %>
+            
     <div class="cards mt-5 favorite">
-        <% @home_toys.each do |toy|%>
-          <div class="home-card">
-          <a href="<%= toy_path(toy) %>">
-            <div class="home-username"><i class="fa-solid fa-circle-user"></i><%= toy.user.username %></div>
-            <div class="image-home-toy image-overlay" style="background-image: url(<%= toy.image_url.attached? ? cl_image_path(toy.image_url.key) :asset_path('image-default.jpeg')%>)">
+      <% @home_toys.each do |toy|%>
+        <div class="home-card">
+        <a href="<%= toy_path(toy) %>">
+          <div class="home-username"><i class="fa-solid fa-circle-user"></i><%= toy.user.username %></div>
+          <div class="image-home-toy image-overlay" style="background-image: url(<%= toy.picture_image.attached? ? cl_image_path(toy.picture_image.key) :asset_path(toy.image_url)%>)">
             </div>
               <h3 class='card-toyname'><%=toy.name%></h3>
               <p class='card-price'>€<%=toy.price.to_i%> per day</p>

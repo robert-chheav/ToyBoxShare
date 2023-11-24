@@ -15,10 +15,10 @@
           <p><strong>From</strong> <%=  reservation.booking_date_start.strftime('%e %b') %> <strong>to</strong> <%=  reservation.booking_date_end.strftime('%e %b') %></p>
             <div class="container-image">
               <div class="img">
-              <% if reservation.toy.image_url.attached? %>
-              <%= cl_image_tag (reservation.toy.image_url.key)%>
+              <% if reservation.toy.picture_image.attached? %>
+              <%= cl_image_tag (reservation.toy.picture_image.key)%>
               <% else %>
-              <%= image_tag 'image-default.jpeg' %>
+              <%= image_tag reservation.toy.image_url %>
               <% end %>
               </div>
             </div>
@@ -45,8 +45,7 @@
                       <%= '|' %>
                       <%= link_to "Edit",  edit_toy_path(toy) %>
                     </div>
-                    <a href="<%= toy_path(toy) %>">
-                    <div class="image-home-toy image-overlay" style="background-image: url(<%= toy.image_url.attached? ? cl_image_path(toy.image_url.key) :asset_path('image-default.jpeg')%>)">
+                    <div class="image-home-toy" style="background-image: url(<%= toy.picture_image.attached? ? cl_image_path(toy.picture_image.key) :asset_path(toy.image_url)%>)">
                     </div>
                     <div>
                       <h3 class='card-toyname'><%=toy.name%></h3>

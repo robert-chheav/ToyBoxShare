@@ -4,10 +4,10 @@
 
       <div class="toy-image">
             <span>
-              <% if @toy.image_url.attached? %>
-                <%= cl_image_tag(@toy.image_url.key) %>
+              <% if @toy.picture_image.attached? %>
+                <%= cl_image_tag(@toy.picture_image.key) %>
               <% else %>
-                <%= image_tag 'image-default.jpeg'%>
+                <%= image_tag @toy.image_url %>
               <% end %>
             </span>
       </div>
