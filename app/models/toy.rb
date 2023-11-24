@@ -1,6 +1,7 @@
 class Toy < ApplicationRecord
-  has_one_attached :image_url
+  has_one_attached :picture_image
   belongs_to :user
+  has_many :reservations, dependent: :destroy
   validates :name, :price, :description, :age, :location, presence: true
   geocoded_by :location
   after_validation :geocode
