@@ -2,9 +2,9 @@
 </div>
 <div class="container mt-5">
 
-  <h2>All the toys</h2>
+  <h2>Check out all the toys!</h2>
 
-    <div class="toys-filter">
+    <div class="toys-filter mb-4">
       <%= link_to "All the toys", toys_path(@toys), class: "filter" %>
       <%= link_to "0-6 MONTHS", toys_path(age: "0-6 MONTHS"), class: "filter" %>
       <%= link_to "6-12 MONTHS", toys_path(age: "6-12 MONTHS"), class: "filter" %>
@@ -14,19 +14,18 @@
       <%= link_to "12+ YEARS", toys_path(age: "12+ YEARS"), class: "filter" %>
     </div>
 
-     <div class="cards">
+     <div class="cards mb-5">
       <% @toys.each do |toy|%>
-        <a href="<%= toy_path(toy) %>">
         <div class="home-card">
+        <a href="<%= toy_path(toy) %>">
           <div class="home-username"><i class="fa-solid fa-circle-user"></i><%= toy.user.username %></div>
-          <div class="image-home-toy" style="background-image: url(<%= toy.image_url.attached? ? cl_image_path(toy.image_url.key) :asset_path('image-default.jpeg')%>)">
+          <div class="image-home-toy image-overlay" style="background-image: url(<%= toy.image_url.attached? ? cl_image_path(toy.image_url.key) :asset_path('image-default.jpeg')%>)">
           </div>
-          <div class="px-3">
-          <h3><%= toy.name %></h3>
-          <p><%=toy.price.to_i%> EUR per day</p>
-          <p><%=toy.age%> months</p>
-          <p>Amsterdam 1084VV today at 14:55</p>
-          </div>
+            <h3 class='card-toyname'><%=toy.name%></h3>
+            <p class='card-price'>€<%=toy.price.to_i%> per day</p>
+            <p class='card-age'><%=toy.age%></p>
+            <p class='card-place-date'><%= toy.location %> | posted: <%=toy.created_at.strftime('%a %e %b')%></p>
+          </a>
         </div>
       <% end %>
     </div>
