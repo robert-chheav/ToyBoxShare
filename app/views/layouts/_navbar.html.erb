@@ -6,8 +6,8 @@
       </div>
 
       <div class='navbar-auth'>
-               <%= link_to "My Dashboard", dashboard_path, class: "link_to" %>
           <% if user_signed_in? %>
+          <%= link_to "My Dashboard", dashboard_path, class: "link_to" %>
             <div>
               <i class="fa-solid fa-right-from-bracket" style="color: #ffffff;"></i>
               <%= link_to "Sign out", destroy_user_session_path, data: {turbo_method: :delete}, class: "link_to"%>
