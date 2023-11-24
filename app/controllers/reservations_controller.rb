@@ -15,7 +15,7 @@ class ReservationsController < ApplicationController
     @reservation.toy = @toy
     @reservation.user = current_user
     if @reservation.save
-      redirect_to user_reservations_path(:user_id)
+      redirect_to dashboard_path
     else
       render :new, status: :unprocessable_entity
     end
