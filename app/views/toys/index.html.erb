@@ -16,7 +16,7 @@
 
      <div class="cards">
       <% @toys.each do |toy|%>
-        <a href="<%= new_toy_reservation_path(toy.id) %>">
+        <a href="<%= toy_path(toy) %>">
         <div class="home-card">
           <div class="home-username"><i class="fa-solid fa-circle-user"></i><%= toy.user.username %></div>
           <div class="image-home-toy" style="background-image: url(<%= toy.image_url.attached? ? cl_image_path(toy.image_url.key) :asset_path('image-default.jpeg')%>)">

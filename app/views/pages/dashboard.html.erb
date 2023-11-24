@@ -1,52 +1,72 @@
+<div class='container'>
+  <div class="dashboard-container">
 
-<div class="dasboard-container">
-  <h1>Dashboard</h1>
-  <h2>My reservations</h2>
-    <div class='cards'>
-      <% @reservations.each do |reservation| %>
-      <div class="cards-container">
-        <div class="container-image">
-          <div class="img">
-          <% if reservation.toy.image_url.attached? %>
-          <%= cl_image_tag (reservation.toy.image_url.key)%>
-          <% else %>
-          <%= image_tag 'image-default.jpeg' %>
-          <% end %>
-          </div>
+    <h1 class="mt-5">
+      <div class="home-username">
+        <i class="fa-solid fa-circle-user" style="color: #013D7B;"></i> Welcome, user</div>
+    </h1>
 
-        </div>
-    </div>
-
-  <h2>My Toys</h2>
-      <% @toys.each do |toy| %>
-      <div class="cards-container">
-        <div class="container-image">
-          <div class="img">
-            <% if toy.image_url.attached? %>
-              <%= cl_image_tag (toy.image_url.key)%>
-            <% else %>
+  <div class="my-5">
+      <div class="my-reservation-box p-5">
+        <h2 class='mb-3 pb-3'>My reservations</h2>
+        <div class='cards'>
+          <% @reservations.each do |reservation| %>
+          <div class="cards-container">
+          <p>From <%=  reservation.booking_date_start %> to <%=  reservation.booking_date_end %></p>
+            <div class="container-image">
+              <div class="img">
+              <% if reservation.toy.image_url.attached? %>
+              <%= cl_image_tag (reservation.toy.image_url.key)%>
+              <% else %>
               <%= image_tag 'image-default.jpeg' %>
-            <% end %>
+              <% end %>
+              </div>
+            </div>
+            <div class="card-details">
+              <h3><%= reservation.toy.name %></h3>
+              <p><%= reservation.toy.location %></p>
+              <%= link_to "Cancel",  reservation_path(reservation), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+            </div>
           </div>
+          <% end %>
         </div>
-        <div class="card-details">
+      </div>
+  </div>
 
-          <h3><%= toy.name %></h3>
-          <p><%=toy.price.to_i%> EUR per day</p>
-          <p><%=toy.age%> months</p>
-          <p>Amsterdam 1084VV today at 14:55</p>
+
+  <div>
+        <div class="my-toys-box mb-5 p-5">
+          <h2 class='mb-3 pb-3'>My Toys</h2>
+          <div class="cards">
+                <%@toys.each do |toy|%>
+
+                  <div class="home-card">
+                    <div class="action-card">
+                      <%= link_to "Delete",  toy_path(toy), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+                      <%= link_to "Edit",  edit_toy_path(toy) %>
+                    </div>
+                    <div class="image-home-toy" style="background-image: url(<%= toy.image_url.attached? ? cl_image_path(toy.image_url.key) :asset_path('image-default.jpeg')%>)">
+                    </div>
+                    <div>
+                      <h3 class='card-toyname'><%=toy.name%></h3>
+                      <p class='card-price'>€<%=toy.price.to_i%> per day</p>
+                      <p class='card-age'><%=toy.age%></p>
+                      <p class='card-place-date'><%= toy.location %> <%=toy.created_at%></p>
+                    </div>
+                  </div>
+                <% end %>
           </div>
-        </div>
-      <% end %>
-    </div>
-        <div data-controller="toggle">
-          <button data-action="click->toggle#show">Sell a toy</button>
-          <div class="d-none" data-toggle-target="togglable">
-            <%= render "toys/form", thing: @toy %>
+
+          <div data-controller="toggle" class='btn-add'>
+            <button data-action="click->toggle#show"  class="btn btn-primary btn-add-toy"> <i class="fa-solid fa-plus"></i> Sell a toy</button>
+              <div class="d-none" data-toggle-target="togglable">
+                <%= render "toys/form", thing: @toy %>
+              </div>
           </div>
+
         </div>
-        </div>
-    </div>
+
+  </div>
 
   </div>
 </div>

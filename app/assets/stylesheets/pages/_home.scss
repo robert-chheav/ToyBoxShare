@@ -20,18 +20,20 @@
   margin-bottom:20px;
   flex-direction: column;
   max-width: 250px;
-  transition: transform .2s;
+  // transition: transform .2s;
   &:hover {
-    transform: scale(1.05)
+    // transform: scale(1.05)
   }
 
   .image-home-toy {
-    background-size: cover;
-    margin: 10px;
-    height: 200px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 300px;
     width: 100%;
     border-radius: 20px;
-    background-color: rgba(70, 73, 73, 0.105);
+    background-color: rgba(0, 0, 0, 0.041);
+    margin: 10px 0px;
   }
 
   span {
@@ -48,7 +50,6 @@
 
   p {
     font-size: 14px;
-    padding-bottom: 5px;
     margin: 0;
   }
 

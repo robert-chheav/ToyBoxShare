@@ -7,9 +7,10 @@
 }
 .toy-container {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1fr 1fr;
   justify-content: center;
   padding: 80px 0px 50px;
+  max-width: 80%;
 }
 
 .map {
@@ -17,9 +18,6 @@
   margin: auto;
 }
 
-.toy-reservation-details {
-  width: 300px;
-}
 
 .map-container {
   width: 100%;
@@ -31,30 +29,46 @@
 //   padding: 50px; /* Optional: Add padding to the content inside the div */
 // }
 
+
 .toy-image {
 
-  height: 100%;
-  width: auto;
-
-  display:flex;
-  justify-content: space-between;
-
-  image {
-  width: 100%;
+  img {
+    max-width: 100%;
+    border-radius: 20px;
   }
-
 }
 
 .toy-reservation-details {
-  border-radius: 8px;
+  width: 300px;
+  border-radius: 20px;
   background-color: white;
   padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 3px 4px 15px rgba(0, 0, 0, 0.14);
+  border: rgba(0, 0, 0, 0.235) solid 1px;
 
   .price {
-    font-weight: bold;
+    display: flex;
+    flex-direction: row;
     font-size:25px;
-    padding: 10px;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+
+
+    span {
+      font-size: medium;
+    }
+
+    p {
+      margin: 0px;
+    }
+  }
+}
+
+.price-tag {
+
+  ::after {
+    border-top: black solid 1px;
   }
 }
 
@@ -82,10 +96,18 @@
 
 .total-price {
   display: flex;
-  border-top: 1px solid lightgrey;
+  font-size: medium;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  span {
+    font-size: small;
+  }
 
   p {
-  padding: 10px;
+    margin: 0px;
+    font-size: large;
+    font-weight: bold;
   }
 
 }
