@@ -1,18 +1,18 @@
 <div class="navbar fixed-top">
 
         <%= link_to image_tag("ToyBoxShare-final-logo.png"), root_path, id:"logo"%>
-      <div class="navbar-nav">
-        <%= link_to "All Toys", toys_path, class: "link_to" %>
-      </div>
 
       <div class='navbar-auth'>
           <% if user_signed_in? %>
+          <%= link_to "See all toys", toys_path, class: "link_to" %>
           <%= link_to "My Dashboard", dashboard_path, class: "link_to" %>
             <div>
               <i class="fa-solid fa-right-from-bracket" style="color: #ffffff;"></i>
               <%= link_to "Sign out", destroy_user_session_path, data: {turbo_method: :delete}, class: "link_to"%>
             </div>
+          <%= link_to "Rent your toy", new_toy_path, class: "link_to", class: "button-sigup"%>
           <% else %>
+            <%= link_to "All toys", toys_path, class: "link_to" %>
             <%= link_to "Login", new_user_session_path, class: "link_to"%>
             <%= link_to "Sign up", new_user_registration_path, class:"button-sigup"%>
           <% end %>
