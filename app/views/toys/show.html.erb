@@ -1,43 +1,61 @@
 <div class="toy-card">
+
   <div class="toy-container">
+
       <div class="toy-image">
-         <div class ="product-image">
-            <% if @toy.image_url.attached? %>
-              <%= cl_image_tag(@toy.image_url.key) %>
-            <% else %>
-              <%= image_tag 'image-default.jpeg'%>
-            <% end %>
-        </div>
+            <span>
+              <% if @toy.image_url.attached? %>
+                <%= cl_image_tag(@toy.image_url.key) %>
+              <% else %>
+                <%= image_tag 'image-default.jpeg'%>
+              <% end %>
+            </span>
       </div>
+
       <div class="toy-details">
         <h2><%= @toy.name %></h2>
+
         <div class="descripiton">
           <h3>Descripiton</h3>
           <p><%= @toy.description %></p>
         </div>
+
         <div class="toy-reservation-details">
-          <p class="price"><strong>€<%= @toy.price.to_i %>  /day</p>
+
           <div class="container" data-controller='toggle' data-toggle-price-value="<%= @toy.price %>">
+            <div class="price">
+              <p><b>€<%= @toy.price.to_i %></b></p> <span>per day</span>
+            </div>
             <%= simple_form_for [@toy, @reservation] do |f| %>
-              <%= f.input :booking_date_start, as: :string, input_html: { data: { controller: "datepicker", datepicker_dates_value: @dates_availability, action: 'change->toggle#setStartDate' } }, placeholder: "Startdate" ,label: "Duration of Rent"%>
-              <%= f.input :booking_date_end, as: :string, input_html: { data: { controller: "datepicker", action: 'change->toggle#setEndDate' } } , placeholder: "Enddate", label:false%>
-              <p data-toggle-target="priceText"></p>
-              <%= f.submit "Reserve", class: 'btn btn-primary'%>
+              <div class='date-picker'>
+                <%= f.input :booking_date_start, as: :string, input_html: { data: { controller: "datepicker", datepicker_dates_value: @dates_availability, action: 'change->toggle#setStartDate' } }, placeholder: "Start date" ,label:false%>
+                <%= f.input :booking_date_end, as: :string, input_html: { data: { controller: "datepicker", action: 'change->toggle#setEndDate' } } , placeholder: "End date", label:false%>
+              </div>
+              <%= f.submit "Reserve", class: 'btn btn-primary my-3'%>
+              <div class="total-price">
+                <p data-toggle-target="priceTextTotal"></p><span data-toggle-target="priceTextCalcul"></span><p data-toggle-target="priceTextSum"></p>
+              </div>
+
             <% end %>
           </div>
+
         </div>
       </div>
+
   </div>
+
   <div class="map">
+
     <div class="location">
-      <h2>Location</h2> 
+      <h2>Location</h2>
       <%= @toy.location %></p>
     </div>
+
     <div class="map-container" style="width: 100%; height: 400px;"
         data-controller="map"
         data-map-markers-value="<%= @markers.to_json %>"
         data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
-  </div>
+
   </div>
 </div>

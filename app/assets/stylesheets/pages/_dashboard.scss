@@ -7,6 +7,10 @@ padding: 10px 50px;
   background-color: white;
   border: solid rgba(0, 0, 0, 0.133) 2px;
   border-radius: 20px;
+
+  h2{
+    border-bottom: rgba(0, 0, 0, 0.16) solid 1px
+  }
 }
 
 .my-toys-box {
@@ -14,4 +18,45 @@ padding: 10px 50px;
   background-color: white;
   border: solid rgba(0, 0, 0, 0.133) 2px;
   border-radius: 20px;
+
+  h2{
+    border-bottom: rgba(0, 0, 0, 0.16) solid 1px
+  }
+}
+
+
+.btn-add {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+  .btn-add-toy {
+    max-width: 40%;
+    margin: 30px 0px;
+  }
+}
+
+.action-card {
+  display: flex;
+  gap: 20px;
+}
+
+.card-toyname {
+  margin: 0px;
+  font-family: 'Poppins';
+  font-weight: 600;
+}
+
+.card-age {
+  padding: 10px 0px;
+}
+.card-price {
+  font-weight: 600;
+  padding: 0px;
+}
+
+.card-place-date {
+  margin-top: 10px;
+  color: rgb(123, 123, 123);
 }

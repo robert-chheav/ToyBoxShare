@@ -3,7 +3,7 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="toggle"
 export default class extends Controller {
 
-  static targets = ["priceText", "togglable"]
+  static targets = ["priceTextTotal", "priceTextCalcul", "priceTextSum", "togglable"]
   static values = {
     price: Number
   }
@@ -35,7 +35,9 @@ export default class extends Controller {
     // console.log(this.priceValue)
     const price = this.priceValue
     // console.log(days*price)
-    this.priceTextTarget.innerText = `Total: €${days*price}`
+    this.priceTextTotalTarget.innerText = `Total`
+    this.priceTextCalculTarget.innerText = `€${price} x ${days} days`
+    this.priceTextSumTarget.innerText = `€${days*price}`
   }
 
   show() {
