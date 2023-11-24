@@ -21,12 +21,6 @@
           <div class="home-username"><i class="fa-solid fa-circle-user"></i><%= toy.user.username %></div>
           <div class="image-home-toy image-overlay" style="background-image: url(<%= toy.picture_image.attached? ? cl_image_path(toy.picture_image.key) :asset_path(toy.image_url)%>)">
           </div>
-          <div class="px-3">
-          <h3><%= toy.name %></h3>
-          <p><%=toy.price.to_i%> EUR per day</p>
-          <p><%=toy.age%> months</p>
-          <p>Amsterdam 1084VV today at 14:55</p>
-          </div>
             <h3 class='card-toyname'><%=toy.name%></h3>
             <p class='card-price'>€<%=toy.price.to_i%> per day</p>
             <p class='card-age'><%=toy.age%></p>
