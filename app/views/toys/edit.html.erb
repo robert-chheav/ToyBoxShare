@@ -1,10 +1,12 @@
 <div class="container">
   <div class="form">
-    <h1>Update your toy</h1>
 
-    <div class="form-size">
-      <%= render "form", thing: @toy %>
-      <%= link_to "Cancel", toy_path(@toy), class: "btn btn-light"%>
+      <div class="form-size">
+    <div class='align-btn'>
+    <h1 class='my-4'>Update your toy</h1>
+        <%= render "form", thing: @toy %>
+        <%= link_to "Cancel", toy_path(@toy)%>
+      </div>
     </div>
   </div>
 </div>
