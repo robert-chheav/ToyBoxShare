@@ -19,7 +19,7 @@
         <a href="<%= toy_path(toy) %>">
         <div class="home-card">
           <div class="home-username"><i class="fa-solid fa-circle-user"></i><%= toy.user.username %></div>
-          <div class="image-home-toy" style="background-image: url(<%= toy.image_url.attached? ? cl_image_path(toy.image_url.key) :asset_path('image-default.jpeg')%>)">
+          <div class="image-home-toy" style="background-image: url(<%= toy.picture_image.attached? ? cl_image_path(toy.picture_image.key) :asset_path(toy.image_url)%>)">
           </div>
           <div class="px-3">
           <h3><%= toy.name %></h3>
