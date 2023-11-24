@@ -35,25 +35,31 @@ padding: 10px 50px;
     max-width: 40%;
     margin: 30px 0px;
   }
+
 }
 
 .action-card {
   display: flex;
   gap: 20px;
+
 }
+
 
 .card-toyname {
   margin: 0px;
   font-family: 'Poppins';
   font-weight: 600;
+  color: black;
 }
 
 .card-age {
   padding: 10px 0px;
+  color: black;
 }
 .card-price {
   font-weight: 600;
   padding: 0px;
+  color: black;
 }
 
 .card-place-date {
