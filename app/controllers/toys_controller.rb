@@ -62,7 +62,7 @@ class ToysController < ApplicationController
   def destroy
     @toy = Toy.find(params[:id])
     @toy.destroy
-    redirect_to toys_path, status: :see_other
+    redirect_to dashboard_path, status: :see_other
   end
 
   private

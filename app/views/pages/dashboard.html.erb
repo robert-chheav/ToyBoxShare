@@ -3,16 +3,17 @@
 
     <h1 class="mt-5">
       <div class="home-username">
-        <i class="fa-solid fa-circle-user" style="color: #013D7B;"></i> Welcome, user</div>
+        <i class="fa-solid fa-circle-user" style="color: #013D7B;"></i> Welcome, <%= current_user.username %></div>
     </h1>
 
   <div class="my-5">
       <div class="my-reservation-box p-5">
         <h2 class='mb-3 pb-3'>My reservations</h2>
         <div class='cards'>
+
           <% @reservations.each do |reservation| %>
           <div class="cards-container">
-          <p>From <%=  reservation.booking_date_start %> to <%=  reservation.booking_date_end %></p>
+          <p><strong>From</strong> <%=  reservation.booking_date_start.strftime('%e %b') %> <strong>to</strong> <%=  reservation.booking_date_end.strftime('%e %b') %></p>
             <div class="container-image">
               <div class="img">
               <% if reservation.toy.picture_image.attached? %>
@@ -23,7 +24,7 @@
               </div>
             </div>
             <div class="card-details">
-              <h3><%= reservation.toy.name %></h3>
+              <h3 class='card-toyname'><%= reservation.toy.name %></h3>
               <p><%= reservation.toy.location %></p>
               <%= link_to "Cancel",  reservation_path(reservation), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
             </div>
@@ -39,10 +40,10 @@
           <h2 class='mb-3 pb-3'>My Toys</h2>
           <div class="cards">
                 <%@toys.each do |toy|%>
-
                   <div class="home-card">
                     <div class="action-card">
                       <%= link_to "Delete",  toy_path(toy), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+                      <%= '|' %>
                       <%= link_to "Edit",  edit_toy_path(toy) %>
                     </div>
                     <div class="image-home-toy" style="background-image: url(<%= toy.picture_image.attached? ? cl_image_path(toy.picture_image.key) :asset_path(toy.image_url)%>)">
@@ -51,8 +52,9 @@
                       <h3 class='card-toyname'><%=toy.name%></h3>
                       <p class='card-price'>€<%=toy.price.to_i%> per day</p>
                       <p class='card-age'><%=toy.age%></p>
-                      <p class='card-place-date'><%= toy.location %> <%=toy.created_at%></p>
+                      <p class='card-place-date'><%= toy.location %> | posted: <%=toy.created_at.strftime('%a %e %b')%></p>
                     </div>
+                    </a>
                   </div>
                 <% end %>
           </div>

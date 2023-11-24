@@ -1,7 +1,15 @@
 // Specific CSS for your home-page
 .page-wrapper {
-  background-color: #f7f7f73b;
+  background: url('stars-background.png');
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
 }
+
+.main-padding{
+  padding:0px 10%;
+}
+
 
 .category-filter {
   display: flex;
@@ -15,14 +23,33 @@
   }
 }
 
+.home-username {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+
 .home-card {
   display: flex;
   margin-bottom:20px;
   flex-direction: column;
   max-width: 250px;
-  // transition: transform .2s;
+  color: black;
+
+  h3 {
+    font-size: 20px;
+  }
+
   &:hover {
-    // transform: scale(1.05)
+    h3 {
+      color: $ligthblue;
+    }
+
+    .image-overlay {
+      background-size: cover;
+    }
+
   }
 
   .image-home-toy {
@@ -41,12 +68,6 @@
     height: 200px;
   }
 
-  h3 {
-    font-size: 20px;
-    &:hover {
-      color: $darkblue;
-    }
-  }
 
   p {
     font-size: 14px;
